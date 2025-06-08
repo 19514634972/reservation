@@ -28,4 +28,5 @@ trust-dns-server = { version = "0.21.2", features = ["tokio-rustls", "trust-dns-
 
 [dev-dependencies]
 anyhow = "1.0.62"
+
 tokio = { version = "1.20.1", features = ["macros"] }
