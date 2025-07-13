@@ -4,3 +4,12 @@ members = [
     "reservation",
     "service"
 ]
+
+
+
+[source.crates-io]
+replace-with = "rsproxy"
+
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
