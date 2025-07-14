@@ -1,4 +1,4 @@
-
+use std::process::Command;
 fn main(){
 
     tonic_build::configure()
@@ -11,6 +11,7 @@ fn main(){
         .current_dir("src/pb")
         .output()
         .unwrap();
+
 
 
 
