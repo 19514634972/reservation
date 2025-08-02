@@ -1,14 +1,18 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+mod errors;
+pub use error::ReservationError;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub type ReservationId=String;
+pub type UserId=String;
+pub type ResourceId=String;
+
+pub trait Rsvp{
+    fn reserve(&self,rsvp: abi::Reservation)->Result<abi::Reservation,ReservationError>;
+    fn change_status(&self,id:ReservationId)->Result<abi::Reservation,ReservationError>;
+    fn update_note(&self,id:ReservationId,note: String)->Result<abi::Reservation,ReservationError>;
+    fn delete(&self,id:ReservationId)->Result<(),ReservationError>;
+    fn get(&self,id:ReservationId)->Result<abi::Reservation,ReservationError>;
+    fn query(&self,query:abi::UserId,)->Result<Vect<abi::Reservation>,ReservationError>;
+
+
 }
